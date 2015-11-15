@@ -2,7 +2,7 @@
 Origionally this program was to be written in JavaScript until I came to the realization that
 JavaScript was the wrong programming language for this type of program.
 
-Today's Data: 11/13
+Date: 11/15
 
 *GAME SYSTEM NUMBER RECORD*
 0: Nations: The RPG by Griffin Scott
@@ -12,8 +12,14 @@ Today's Data: 11/13
 *PLACE HOLDER FOR CITING RESOURCES* */
 
 //GLOBAL VARIABLES
-int whatGame; //This contains the selected number for the game system. See the Game System Number Record for more info.
 
-public class GameSelection {
-  
-}
+//Functions
+public class CharacterCreator {
+
+  public static void main(String[] args){
+
+  } //End Main
+  public static int gameSelector(int whatGame){
+
+  }//End gameSelector
+} //End CharacterCreator
