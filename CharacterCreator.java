@@ -5,13 +5,18 @@ JavaScript was the wrong programming language for this type of program.
 Date: 11/15
 */
 /*GAME SYSTEM NUMBER RECORD
-0: Nations: The RPG by Griffin Scott
-1: Pathfinder by Paizo Publishing
-2: EMPTY */
+0: Games List
+1: Nations: The RPG by Griffin Scott
+2: Pathfinder by Paizo Publishing
+3: EMPTY */
 
 /* Resource Citing
-http://illegalargumentexception.blogspot.com/2010/09/java-systemconsole-ides-and-testing.html Provides examples of non-console programming.
+http://illegalargumentexception.blogspot.com/2010/09/java-systemconsole-ides-and-testing.html Provides examples of non-console code.
 */
+
+//Imports
+import java.util.Scanner;
+
 
 //GLOBAL VARIABLES
 
@@ -23,11 +28,11 @@ public class CharacterCreator {
   } //End Main
 
   public static int gameSelector(int whatGame){ //This is where the user selects which game system they want to chose.
-    console.println("This is the Game Selection area. Please type the number of
-    the game system that you want to use. To see what game systems are avaliable,
-     please type Games."); //Prints the instructions for this part of the program.
+    Scanner s = new Scanner(System.in);
 
-     //This will start the parsing. 
+    System.out.println("This is the Game Selection area. Please type the number of the game system that you want to use. To see what game systems are avaliable, please enter 0."); //Prints the instructions for this part of the program.
+
+    
   }//End gameSelector
 
 } //End CharacterCreator
