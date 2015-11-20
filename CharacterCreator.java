@@ -36,18 +36,25 @@ public class CharacterCreator {
 		  
 		  switch(commandString){
 		  	case "Help":
-		  		System.out.println("The following commands are avaliable. Game Selector: Allows selection of game system. Load: Opens the Load Character Sheet Program. Create Character: Creates a new character using the currently selected system. Delete Character: Opens the Delete Character program.");
+		  		System.out.println("The following commands are avaliable. "
+		  				+ "Game Selector: Allows selection of game system. "
+		  				+ "Load: Opens the Load Character Sheet Program. "
+		  				+ "Create Character: Creates a new character using the currently selected system. "
+		  				+ "Delete Character: Opens the Delete Character program.");
+		  		System.out.println("Currently, only Game Selector and Create Character commands are completed.");
 		  		break; 
 		  	case "Game Selector": //This will proc gameSelector, allowing the user to select which game system they want to use.
 		  		System.out.println("You have selected the Game Selector command. Please enter the first name of the game system you want, or enter List to see the list of game systems.");
-		  		gameSelector(); //Insert GameSelector. Super().gameSelector.java doesn't work. Why?
-		  		progress++;
+		  		gameSelector(); //Runs gameSelector, which returns an int with what Game System was chosen.
+		  		//System.out.println("Game system is: " + gameSystem);
+		  		//progress++;
 		  		break;
 		  	case "Load": //This will ask for the name of a character, in order to load it.
-		  		progress++;
+		  		//Insert Load command
+		  		//progress++;
 		  		break;
 		  	case "Create Character": //Begins the Character Creation Process for the currently selected system.
-		  		progress++;
+		  		//progress++;
 		  		System.out.println("Please insert the name of the character you want to create.");
 		  		String characterName = name.nextLine();
 		  		System.out.println("Creating a character with the name : " +characterName);
@@ -56,7 +63,7 @@ public class CharacterCreator {
 		  	case "Delete Character": //Asks for the name of the character to remove.
 		  		//Insert the Delete command.
 		  		System.out.println("Please insert the name of the character that you want to delete.");
-		  		progress++;
+		  		//progress++;
 		  		break;
 		  	default: System.out.println("I'm sorry, the command you entered was not valid. If you need help with the commands, please enter Help. Capitalization is required.");
 		  	break;
@@ -78,14 +85,21 @@ public class CharacterCreator {
       	case "Nations": System.out.println("You have selected Nations the RPG.");
       		gameSystem = 1; //Sets gameSystem to Nations the RPG.
       		break;
-      	case "Pathfinder": System.out.println("You have selected Pathfinder. WARNING this game system is incomplete.");
+      	case "Pathfinder": System.out.println("You have selected Pathfinder. "
+      			+ "WARNING this game system is incomplete.");
       		gameSystem = 2; //Sets gameSystem to Pathfinder.
       		break;
       default: System.out.println("I'm sorry, but that is not a valid command. For a list of Game Systems, please enter the word 'Help'.");
       }
-      } while(gameSystem==0);
-      return gameSystem; //Sends back the chosen game system to 
+      } while(gameSystem == 0);
+      return gameSystem; //Sends back the chosen game system to Main. 
     }//End gameSelector
-
+  
+  /*New public method, called Creation. Creates an array based on the requirements of each game system. gameSystem will be sent to this method, which will cycle through an if statement. If gameSystem == 1, then Nations. If gameSystem == 2, then Pathfinder.
+  For Nations: Player Name, Origin, Origin Sub-type, Military, Economy, Diplomacy, Modified Military, Modified Economy, Modified Diplomacy, Government Type, Nation Name. Create 2 arrays for Powers and Historical Importances that change based on how many Powers/HI are given by their chosen info.
+  For Pathfinder: Player Name, Character Name, Level. Look to PFSRD for full list.
+  
+  Need 1 Scanner which will use the .nextLine command to insert info into the array.
+  */
   
 }
