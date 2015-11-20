@@ -90,7 +90,7 @@ public class CharacterCreator {
     		  			+ "WARNING this game system is incomplete.");
     		  		gameSystem = 2; //Sets gameSystem to Pathfinder.
     		  		break;
-    		  	default: System.out.println("I'm sorry, but that is not a valid command. For a list of Game Systems, please enter the word 'Help'.");
+    		  	default: System.out.println("I'm sorry, but that is not a valid command. For a list of Game Systems, please enter the word 'List'.");
     		  }
     	  } while(gameSystem == 0); //Loops while gameSystem is not set to anything. 
       }else{
