@@ -100,6 +100,10 @@ public class CharacterCreator {
   For Pathfinder: Player Name, Character Name, Level. Look to PFSRD for full list.
   
   Need 1 Scanner which will use the .nextLine command to insert info into the array.
+  
+  Pull data from the ArrayList program, including the dynamic sizing.
   */
+  
+  
   
 }
