@@ -16,18 +16,17 @@ JavaScript was the wrong programming language for this type of program.
 http://illegalargumentexception.blogspot.com/2010/09/java-systemconsole-ides-and-testing.html Provides examples of non-console code.
 */
 
-//Global Variables
-
 //Functions
 public class CharacterCreator {
 
-	int gameSystem;
+	static int gameSystem;
 	
   public static void main(String[] args){ //This is where the magic happens. This is going to be really big.
 	  Scanner m = new Scanner(System.in);
 	  int progress = 0; //This holds the key to ensure that the program will loop until a valid command is inputted.
 	  Scanner name = new Scanner(System.in);
-
+	  int gameSelector = 0;
+	  
 	  System.out.println("Welcome to Griffin Scott's Ultimate Character creator! For a list of commands, please type help and then press enter.");
 
 	  //String commandString = m.nextLine();
@@ -41,7 +40,7 @@ public class CharacterCreator {
 		  		break; 
 		  	case "Game Selector": //This will proc gameSelector, allowing the user to select which game system they want to use.
 		  		System.out.println("You have selected the Game Selector command. Please enter the first name of the game system you want, or enter List to see the list of game systems.");
-		  		//Insert GameSelector. Super().gameSelector.java doesn't work. Why?
+		  		gameSelector(); //Insert GameSelector. Super().gameSelector.java doesn't work. Why?
 		  		progress++;
 		  		break;
 		  	case "Load": //This will ask for the name of a character, in order to load it.
@@ -65,4 +64,28 @@ public class CharacterCreator {
 	  }while(progress == 0);
   } //End Main
 
+  public static int gameSelector(){ //This is where the user selects which game system they want to chose.
+      Scanner s = new Scanner(System.in);
+
+      System.out.println("This is the Game Selection area. Please type the number of the game system that you want to use. To see what game systems are avaliable, please type List and press enter."); //Prints the instructions for this part of the program.
+
+      do{
+      String whatGameString = s.nextLine();
+
+      switch (whatGameString){
+      	case "List": System.out.println("Currently, there are two game systems avaliable: Nations the RPG and Pathfinder. To select a system, type the first part of the system's name into the console. For example, Nations the RPG would be 'Nations'");
+      		break;
+      	case "Nations": System.out.println("You have selected Nations the RPG.");
+      		gameSystem = 1; //Sets gameSystem to Nations the RPG.
+      		break;
+      	case "Pathfinder": System.out.println("You have selected Pathfinder. WARNING this game system is incomplete.");
+      		gameSystem = 2; //Sets gameSystem to Pathfinder.
+      		break;
+      default: System.out.println("I'm sorry, but that is not a valid command. For a list of Game Systems, please enter the word 'Help'.");
+      }
+      } while(gameSystem==0);
+      return gameSystem; //Sends back the chosen game system to 
+    }//End gameSelector
+
+  
 }
