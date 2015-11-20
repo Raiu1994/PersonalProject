@@ -1,4 +1,4 @@
-package edu.saintjoe.gscott;
+package edu.saintjoe.cs.griffinscott;
 
 import java.util.Scanner;
 
@@ -11,10 +11,10 @@ public class gameSelector extends CharacterCreator{
 
 	      String whatGameString = s.nextLine();
 
-	      //int whatGameInt = Integer.parseInt(whatGameString);
+	      int whatGameInt = Integer.parseInt(whatGameString);
 
 	      switch (whatGameString){
-	      	case "Help": System.out.println("Currently, there are two game systems avaliable: Nations the RPG and Pathfinder. To select a system, type the first part of the system's name into the console. For example, Nations the RPG would be 'Nations'");
+	      	case "List": System.out.println("Currently, there are two game systems avaliable: Nations the RPG and Pathfinder. To select a system, type the first part of the system's name into the console. For example, Nations the RPG would be 'Nations'");
 	      		break;
 	      	case "Nations": System.out.println("You have selected Nations the RPG.");
 	      		gameSystem = 1; //Sets gameSystem to Nations the RPG.
@@ -25,7 +25,7 @@ public class gameSelector extends CharacterCreator{
 	      default: System.out.println("I'm sorry, but that is not a valid command. For a list of Game Systems, please enter the word 'Help'.");
 	      }
 
-	      return gameSystem; //Do I need to make this return gameSystem?
+	      return gameSystem; //Sends back the chosen game system to 
 	    }//End gameSelector
 
 }
