@@ -76,24 +76,29 @@ public class CharacterCreator {
 
       System.out.println("This is the Game Selection area. Please type the number of the game system that you want to use. To see what game systems are avaliable, please type List and press enter."); //Prints the instructions for this part of the program.
 
-      do{
-      String whatGameString = s.nextLine();
+      if (gameSystem == 0){
+    	  do{
+    		  String whatGameString = s.nextLine();
 
-      switch (whatGameString){
-      	case "List": System.out.println("Currently, there are two game systems avaliable: Nations the RPG and Pathfinder. To select a system, type the first part of the system's name into the console. For example, Nations the RPG would be 'Nations'");
-      		break;
-      	case "Nations": System.out.println("You have selected Nations the RPG.");
-      		gameSystem = 1; //Sets gameSystem to Nations the RPG.
-      		break;
-      	case "Pathfinder": System.out.println("You have selected Pathfinder. "
-      			+ "WARNING this game system is incomplete.");
-      		gameSystem = 2; //Sets gameSystem to Pathfinder.
-      		break;
-      default: System.out.println("I'm sorry, but that is not a valid command. For a list of Game Systems, please enter the word 'Help'.");
-      }
-      } while(gameSystem == 0);
-      return gameSystem; //Sends back the chosen game system to Main. 
-    }//End gameSelector
+    		  switch (whatGameString){
+    		  	case "List": System.out.println("Currently, there are two game systems avaliable: Nations the RPG and Pathfinder. To select a system, type the first part of the system's name into the console. For example, Nations the RPG would be 'Nations'");
+    		  	break;
+    		  	case "Nations": System.out.println("You have selected Nations the RPG.");
+    		  		gameSystem = 1; //Sets gameSystem to Nations the RPG.
+    		  		break;
+    		  	case "Pathfinder": System.out.println("You have selected Pathfinder. "
+    		  			+ "WARNING this game system is incomplete.");
+    		  		gameSystem = 2; //Sets gameSystem to Pathfinder.
+    		  		break;
+    		  	default: System.out.println("I'm sorry, but that is not a valid command. For a list of Game Systems, please enter the word 'Help'.");
+    		  }
+    	  } while(gameSystem == 0); //Loops while gameSystem is not set to anything. 
+      }else{
+    	  System.out.println("To change the Game System that you wish to use, please restart the program."); //This will occur if the user tries to change their game system after selecting a game system.
+      }//End else
+      
+      return gameSystem; //Sends back the chosen game system to Main.
+  }//End gameSelector
   
   /*New public method, called Creation. Creates an array based on the requirements of each game system. gameSystem will be sent to this method, which will cycle through an if statement. If gameSystem == 1, then Nations. If gameSystem == 2, then Pathfinder.
   For Nations: Player Name, Origin, Origin Sub-type, Military, Economy, Diplomacy, Modified Military, Modified Economy, Modified Diplomacy, Government Type, Nation Name. Create 2 arrays for Powers and Historical Importances that change based on how many Powers/HI are given by their chosen info.
@@ -106,4 +111,4 @@ public class CharacterCreator {
   
   
   
-}
+}//End Public Class Character Creator
