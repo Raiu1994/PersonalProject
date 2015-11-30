@@ -11,9 +11,18 @@ Wish me luck! I get the feeling I'll need it.
 
 11/20: Finish product will be delayed, but will be finished by the end of Thanksgiving break. I have switched from Atom to Eclipse for the project so that I will be able to run the code as I edit it. 
 
-Things to be done:)
-*Create Public Class Character Creator (Use Case for each section, one Case for each game system. Need a text parser for some inputs).
+Things to be done (Programming):
 *Create Export Method (exports character sheets as a txt file).
 *Create Save System (Should hold character sheets from instance to instance. Maybe use the Export file for this.)
 *Create Delete System (Removes saved character sheets from list.)
 *Create Dice system (Put this in main? Simple code.)
+*Create a "sandbox" for games to be played in.
+
+Things to be done (Nations the RPG Development):
+*Create experience system.
+*Create more Origins
+*Create more Government Types
+*Make a list of Historical Importances
+
+Things complete:
+*First version Game List is implemented.
