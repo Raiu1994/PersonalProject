@@ -1,6 +1,8 @@
 package edu.saintjoe.cs.griffinscott;
 
 import java.util.Scanner;
+import java.util.*;
+
 
 /* This is the Character Creator Program made by Griffin Scott for CMP 343: Software Engineering.
 Originally this program was to be written in JavaScript until I came to the realization that
@@ -101,38 +103,87 @@ public class CharacterCreator {
   }//End gameSelector
   
   public static void characterCreation (String characterName){
+	  //Note, each game system has different words for the abilities of a character. The current ones are just generic.
 	  String[] nameArray; //Holds the Player Name, Character Name, Game System, and any background info.
 	  int[] statArray; //Holds the stat line.
+	  int[] skillNumArray; //Holds the number any "skills" which the character has.
+	  String[] skillNameArray; //Holds the name of any "skills" which the character has.
+	  String[] featArray; //Holds the name of any "Feats" which the character has.
+	  
 	  Scanner c = new Scanner(System.in);
 	  
 	  int progress; //This keeps the loop going until character creation is completed.
 	  
 	  progress = 0; //No progress so far.
 	  
-	  while (progress == 0){
+	 // while (progress == 0){
 		  if (gameSystem == 0){ //Catches anyone who tries to do this out of order.
 			  System.out.println("The Game System must be selected before a character can be created. Please restart the program and select a game system using the Game System command.");
-			  break;
-		  }
+		  }//end error catcher.
+		  
 		  if (gameSystem == 1){
+			  //Array Creation
+			  nameArray = new String[10]; //Created a new array which will contain the player name, nation name, game system, name of Origin, name of Government Type, and the conditions when modified MEDs will be used.
+			  statArray = new int[6]; //Holds the Military, Economy, Diplomacy, Modified Military, Modified Economy and Modified Diplomacy.
+			  skillNumArray = new int[10]; //Create the Powers number array, with a starting size of 10.
+			  skillNameArray = new String[10]; //Create the Powers name array, with a starting size of 10.
+			  featArray = new String[10]; //Holds Historical Importances of a nation.
+			  //end Array Creation
+			  
+			  //Variables
+			  int Military = 0; //This holds the base Military stat.
+			  int Economy = 0; //This holds the base Economy stat.
+			  int Diplomacy = 0; //This holds the base Diplomacy stat.
+			  int ModMilitary = 0; //This holds the Modified Military stat.
+			  int ModEconomy = 0; //This holds the Modified Economy stat.
+			  int ModDiplomacy = 0; //This holds the Modified Diplomacy stat.
+			  
+			  /*String PowerName1 = ""; //Holds the first Power name.
+			  String PowerName2 = ""; //Holds the second Power name.
+			  String PowerName3 = ""; //Holds the third Power name.
+			  String PowerName4 = ""; //Holds the fourth Power name.
+			  String PowerName5 = ""; //Holds the fifth Power name.
+			  String PowerName6 = ""; //Holds the sixth Power name.
+			  String PowerName7 = ""; //Holds the seventh Power name.
+			  String PowerName8 = ""; //Holds the eighth Power name.
+			  String PowerName9 = ""; //Holds the ninth Power name.
+			  String PowerName10 = ""; //Holds the tenth Power name.
+			  
+			  int Power1 = 0; //Holds the number of the first Power
+			  int Power2 = 0; //Holds the number of the second Power
+			  int Power3 = 0; //Holds the number of the third Power
+			  int Power4 = 0; //Holds the number of the fourth Power
+			  int Power5 = 0; //Holds the number of the fifth Power
+			  int Power6 = 0; //Holds the number of the sixth Power
+			  int Power7 = 0; //Holds the number of the seventh Power
+			  int Power8 = 0; //Holds the number of the eighth Power
+			  int Power9 = 0; //Holds the number of the ninth Power
+			  int Power10 = 0; //Holds the number of the tenth Power
+			  		Unsure if I need to declare all of them at once.
+			  */
+			  do{
 			  System.out.println("You have created a new nation called: " +characterName);
-		  }
+			  System.out.println("Please type your name.");
+			  String playerName = c.nextLine();
+			  nameArray[0] = ("Player Name: " +playerName);
+			  nameArray[1] = ("Character Name: " +characterName);
+			  nameArray[2] = ("Game System: Nations the RPG");
+			  
+			  }while (progress == 0);
+			  
+		  } //End Nations the RPG character creation
+		  
 		  if (gameSystem == 2){
 			  System.out.println("You have created a new adventurer called: " +characterName);
 			  System.out.println("Warning, the Pathfinder option is not yet complete, as the game is much more expansive than can be covered in a single semester's worth of work. Currently, this serves only as a methoid to test the dice function.");
 			  
-		  }
-	  }
-  }
-  /*New public method, called Creation. Creates an array based on the requirements of each game system. gameSystem will be sent to this method, which will cycle through an if statement. If gameSystem == 1, then Nations. If gameSystem == 2, then Pathfinder.
-  For Nations: Player Name, Origin, Origin Sub-type, Military, Economy, Diplomacy, Modified Military, Modified Economy, Modified Diplomacy, Government Type, Nation Name. Create 2 arrays for Powers and Historical Importances that change based on how many Powers/HI are given by their chosen info.
-  For Pathfinder: Player Name, Character Name, Level. Look to PFSRD for full list.
-  
-  Need 1 Scanner which will use the .nextLine command to insert info into the array.
-  
-  Pull data from the ArrayList program, including the dynamic sizing.
-  */
-  
+			  while (progress == 0){
+				  
+			  }
+			  
+		  } //end Pathfinder character Creation
+	  //} //End while loop
+  }  //End characterCreation
   
   
   
