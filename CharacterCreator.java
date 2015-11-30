@@ -131,12 +131,12 @@ public class CharacterCreator {
 			  //end Array Creation
 			  
 			  //Variables
-			  int Military = 0; //This holds the base Military stat.
-			  int Economy = 0; //This holds the base Economy stat.
-			  int Diplomacy = 0; //This holds the base Diplomacy stat.
-			  int ModMilitary = 0; //This holds the Modified Military stat.
-			  int ModEconomy = 0; //This holds the Modified Economy stat.
-			  int ModDiplomacy = 0; //This holds the Modified Diplomacy stat.
+			  int Military = 3; //This holds the base Military stat.
+			  int Economy = 3; //This holds the base Economy stat.
+			  int Diplomacy = 3; //This holds the base Diplomacy stat.
+			  int ModMilitary = 3; //This holds the Modified Military stat.
+			  int ModEconomy = 3; //This holds the Modified Economy stat.
+			  int ModDiplomacy = 3; //This holds the Modified Diplomacy stat.
 			  
 			  /*String PowerName1 = ""; //Holds the first Power name.
 			  String PowerName2 = ""; //Holds the second Power name.
@@ -162,14 +162,42 @@ public class CharacterCreator {
 			  		Unsure if I need to declare all of them at once.
 			  */
 			  do{
-			  System.out.println("You have created a new nation called: " +characterName);
-			  System.out.println("Please type your name.");
-			  String playerName = c.nextLine();
-			  nameArray[0] = ("Player Name: " +playerName);
-			  nameArray[1] = ("Character Name: " +characterName);
-			  nameArray[2] = ("Game System: Nations the RPG");
-			  
+				  //Begin Player Information
+				  System.out.println("You have created a new nation called: " +characterName);
+				  System.out.println("Please type your name.");
+				  String playerName = c.nextLine();
+				  nameArray[0] = ("Player Name: " +playerName);
+				  nameArray[1] = ("Character Name: " +characterName);
+				  nameArray[2] = ("Game System: Nations the RPG");
+				  //End Player Information
+				  progress++;
 			  }while (progress == 0);
+				  do{
+				  //Begin Nation Origin
+				  System.out.println("Please enter your Nation's origin or enter List to view all origins.");
+				  String originInfo = c.nextLine();//Holds the next typed line
+				  
+				  switch(originInfo){
+				  case "List":
+					  System.out.println("The avalible origins for your Nation are: "
+							  + "Rebel Colony. Your Nation was once the colony of another Nation, and you gained your independence though a revolution. Add 1 to both Military and Economy, but subtract 1 from Diplomacy."
+							  + "Revolution: Fading Empire. Your Nation was born after your people overthrew a once great empire in a glorious revolution! Add 2 to Military, and subtract 1 from both Diplomacy and Economy. Add the Historic Importance 'Political Feavour'.");
+					  break;
+					  
+				  case "Rebel Colony":
+					  System.out.println("You have chosen Rebel Colony as your Nation's origin.");
+					  nameArray[3] = ("Origin: Rebel Colony");
+					  
+					  Military++; //Increases Military to 4
+					  Economy++; //Increases Economy to 4
+					  Diplomacy--; //Decreases Diplomacy to 2
+					  
+					  progress++;
+					  break;
+					  
+				  default: System.out.println("Please use correct capitalization, and include the entirety of the origin name. Example: Colony: Rebellion.");
+				  }//End Switch
+			  }while (progress == 1);
 			  
 		  } //End Nations the RPG character creation
 		  
