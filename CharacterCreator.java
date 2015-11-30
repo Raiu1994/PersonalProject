@@ -123,7 +123,7 @@ public class CharacterCreator {
 		  
 		  if (gameSystem == 1){
 			  //Array Creation
-			  nameArray = new String[10]; //Created a new array which will contain the player name, nation name, game system, name of Origin, name of Government Type, and the conditions when modified MEDs will be used.
+			  nameArray = new String[10]; //Created a new array which will contain the player name, nation name, game system, name of Origin, name of Government Type, and Government Sub-types
 			  statArray = new int[6]; //Holds the Military, Economy, Diplomacy, Modified Military, Modified Economy and Modified Diplomacy.
 			  skillNumArray = new int[10]; //Create the Powers number array, with a starting size of 10.
 			  skillNameArray = new String[10]; //Create the Powers name array, with a starting size of 10.
@@ -172,6 +172,7 @@ public class CharacterCreator {
 				  //End Player Information
 				  progress++;
 			  }while (progress == 0);
+			  
 				  do{
 				  //Begin Nation Origin
 				  System.out.println("Please enter your Nation's origin or enter List to view all origins.");
@@ -180,8 +181,8 @@ public class CharacterCreator {
 				  switch(originInfo){
 				  case "List":
 					  System.out.println("The avalible origins for your Nation are: "
-							  + "Rebel Colony. Your Nation was once the colony of another Nation, and you gained your independence though a revolution. Add 1 to both Military and Economy, but subtract 1 from Diplomacy."
-							  + "Revolution: Fading Empire. Your Nation was born after your people overthrew a once great empire in a glorious revolution! Add 2 to Military, and subtract 1 from both Diplomacy and Economy. Add the Historic Importance 'Political Feavour'.");
+							  + "Rebel Colony. Your Nation was once the colony of another Nation, and you gained your independence though a revolution. Add 1 to both Military and Economy, but subtract 1 from Diplomacy. Add Historic Importances 'Freedom By Fire' and 'National Tantrum'. "
+							  + "Worker's Revolution. Your Nation was born after your people overthrew a once great empire in a glorious revolution! Add 2 to Military, and subtract 1 from both Diplomacy and Economy. Add the Historic Importance 'Political Feavour'.");
 					  break;
 					  
 				  case "Rebel Colony":
@@ -192,22 +193,83 @@ public class CharacterCreator {
 					  Economy++; //Increases Economy to 4
 					  Diplomacy--; //Decreases Diplomacy to 2
 					  
+					  featArray[1] = ("Freedom By Fire."); //Add Freedom By Fire to Historic Importance
+					  featArray[2] = ("National Tantrum."); //Add National Tantrum to Historic Importance
+					  
 					  progress++;
 					  break;
 					  
-				  default: System.out.println("Please use correct capitalization, and include the entirety of the origin name. Example: Colony: Rebellion.");
+				  case "Worker's Revolution":
+					  System.out.println("You have chosen Worker's Revolution as your Nation's Origin.");
+					  nameArray[3] = ("Origin: Worker's Revolution");
+					  
+					  Military = 4;
+					  Economy = 1;
+					  Diplomacy = 1;
+					  
+					  ModEconomy = 2;
+					  ModDiplomacy = 2;
+					  
+					  featArray[1] = ("Political Feavour."); //Add Political Feavour to Historic Importance.
+					  
+					  progress++;
+					  break;
+				  default: System.out.println("Please use correct capitalization, and include the entirety of the origin name. Example: Rebel Colony.");
+				  	break;
 				  }//End Switch
 			  }while (progress == 1);
+			  
+			  //Begin Government Type Selection
+			  do{
+				  System.out.println("Please enter your Nation's Government Type or enter List to view all Government Types.");
+				  String GovernmentInfo = c.nextLine();//Holds the next typed line
+				  
+				  switch (GovernmentInfo){ //Here we go!
+				  	default: System.out.println("Please use correct capitalization, and include the entirety of the Government Type. Example: Democratic Republic.");
+				  		break;
+				  		
+				  	case "List":
+				  		System.out.println("The following Government Types can be selected." 
+				  				+ "Democratic Republic. Your Nation is a Democratic Republic, where your citizens elect representatives to decide on matters of law and state. Add the following Powers: Tariff Trading +1, Cash Crops +1, Army +1, Alliance +1. "
+				  				+ "Socialist State. Your Nation is a Socialist State, where the state controls the economy and most methods of labor. Add the following Powers: ndustrial Mechanation +1,  Secret Police +1, State Owned Business +1, National Pride +1. Add the following Historical Importances: Labor Surplus, Revolutionaries, The Party."
+				  				+ "Successor State. Your Nation is the Successor of a former Nation. Chose a Government Type and gain all Powers and Historical Importances for that Government Type. Then chose a second Government Type, which is what your Nation's Government Type counts as.");
+				  		break;
+				  		
+				  	case "Democratic Republic":
+				  		System.out.println("You have selected Democratic Republic as your Government Type.");
+				  		nameArray[4] = "Government Type: Democratic Republic";
+				  		//NEED .next command!
+				  		break;
+				  		
+				  	case "Socialist State":
+				  		System.out.println("You have selected Socialist State as your Government Type.");
+				  		nameArray[4] = "Government Type: Socialist State";
+				  		//NEED .next command
+				  		break;
+				  		
+				  	case "Successor State":
+				  		System.out.println("You have selected Socialist State as your Government Type. Please enter the Government Type that you start as.");
+				  		nameArray[4] = "Government Type: Successor State";
+				  		
+				  		String firstGovernment = c.nextLine();
+				  		
+				  		switch (firstGovernment){
+				  		
+				  		} //End switch
+				  		
+				  		//NEED .next command
+				  		break;
+				  }//End Switch
+			  }while (progress == 2); //End Government Type Selection
 			  
 		  } //End Nations the RPG character creation
 		  
 		  if (gameSystem == 2){
+			  do{
 			  System.out.println("You have created a new adventurer called: " +characterName);
 			  System.out.println("Warning, the Pathfinder option is not yet complete, as the game is much more expansive than can be covered in a single semester's worth of work. Currently, this serves only as a methoid to test the dice function.");
 			  
-			  while (progress == 0){
-				  
-			  }
+			  }while (progress == 0);
 			  
 		  } //end Pathfinder character Creation
 	  //} //End while loop
@@ -216,3 +278,5 @@ public class CharacterCreator {
   
   
 }//End Public Class Character Creator
+
+//To add: A .next command for Array so that the Array does not need to be hard coded.
