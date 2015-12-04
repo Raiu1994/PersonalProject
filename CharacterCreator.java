@@ -121,6 +121,11 @@ public class CharacterCreator {
   
   public static void characterCreation (String characterName){
 	  
+	  ArrayList<String> name = new ArrayList<String>(10); //Created a new array which will contain the player name, character name, game system, and any game specific info.
+	  ArrayList stat = new ArrayList(6); //Holds the Stats
+	  ArrayList skill = new ArrayList(10); //Create an array to hold skills.
+	  ArrayList<String> feat = new ArrayList<String>(10); //Holds the feats
+	  
 	  Scanner c = new Scanner(System.in);
 	  
 	  int progress; //This keeps the loop going until character creation is completed.
@@ -133,14 +138,7 @@ public class CharacterCreator {
 		  }//end error catcher.
 		  
 		  if (gameSystem == 1){
-			  //Array Creation
-			  ArrayList<String> name = new ArrayList<String>(10); //Created a new array which will contain the player name, nation name, game system, name of Origin, name of Government Type, and Government Sub-types
-			  ArrayList stat = new ArrayList(6); //Holds the Military, Economy, Diplomacy, Modified Military, Modified Economy and Modified Diplomacy.
-			  ArrayList skill = new ArrayList(10); //Create the Powers number array, with a starting size of 10.
-			  ArrayList<String> feat = new ArrayList<String>(10); //Holds Historical Importances of a nation.
-			  //end Array Creation
-			  
-			  
+			 
 			  //Array initialization
 			  stat.add("Stats: ");
 			  skill.add("Powers: ");
@@ -347,7 +345,10 @@ public class CharacterCreator {
 		  if (gameSystem == 2){
 			  do{
 			  System.out.println("You have created a new adventurer called: " +characterName);
-			  System.out.println("Warning, the Pathfinder option is not yet complete, as the game is much more expansive than can be covered in a single semester's worth of work. Currently, this serves only as a methoid to test the dice function.");
+			  System.out.println("Warning, the Pathfinder option is not yet complete, as the game is much more expansive than can be covered in a single semester's worth of work.");
+			  System.out.println("For now, this does nothing so have a kitten.");
+			  System.out.println(":3");
+			  progress++;
 			  
 			  }while (progress == 0);
 			  
