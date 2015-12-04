@@ -28,3 +28,6 @@ Things to be done (Nations the RPG Development):
 
 Things complete:
 *First version Game List is implemented.
+*Nations the RPG prototype Character Creation is implemented.
+*Exit command is implemented.
+*Basework is ready for more games to be added.
