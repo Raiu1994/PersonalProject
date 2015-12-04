@@ -10,8 +10,8 @@ JavaScript was the wrong programming language for this type of program.
 */
 /*GAME SYSTEM NUMBER RECORD
 0: Games List
-1: Nations: The RPG by Griffin Scott
-2: Pathfinder by Paizo Publishing
+1: Nations: The RPG by Griffin Scott : Version 0.01
+2: Pathfinder by Paizo Publishing : Incomplete
 3: EMPTY */	
 
 /* Resource Citing
@@ -59,12 +59,17 @@ public class CharacterCreator {
 		  		break;
 		  		
 		  	case "Create Character": //Begins the Character Creation Process for the currently selected system.
-		  		//progress++;
+		  		
+		  		if (gameSystem == 0){
+		  			System.out.println("Please select a Game System using the Game Selector command before creating a character.");
+		  			break;
+		  		}else{
 		  		System.out.println("Please insert the name of the character you want to create.");
 		  		String characterName = name.nextLine();
 		  		System.out.println("Creating a character with the name : " +characterName);
 		  		characterCreation(characterName);
 		  		break;
+		  		}
 		  		
 		  	case "Delete Character": //Asks for the name of the character to remove. This will be implemented with a save system.
 		  		System.out.println("You found a secret!.");
@@ -105,7 +110,18 @@ public class CharacterCreator {
     		  }
     	  } while(gameSystem == 0); //Loops while gameSystem is not set to anything. 
       }else{
-    	  System.out.println("To change the Game System that you wish to use, please restart the program."); //This will occur if the user tries to change their game system after selecting a game system.
+    	  System.out.println("Do you want to change your selected game system? Please enter Yes or No."); //This will occur if the user tries to change their game system after selecting a game system.
+    	  
+    	  String questionString = s.nextLine();
+    	  
+    	  switch (questionString){
+    	  	case "Yes": System.out.println("Resetting Game System.");
+    	  		gameSystem = 0;
+    	  		break;
+    	  		
+    	  	case "No":
+    	  	 break;
+    	  }
       }//End else
       
       return gameSystem; //Sends back the chosen game system to Main.
@@ -132,9 +148,6 @@ public class CharacterCreator {
 		  if (gameSystem == 1){
 			 
 			  //Array initialization
-			  stat.add("Stats: "); //Add some flavor text
-			  skill.add("Powers: "); //And more flavor text
-			  feat.add("Historical Importances: "); //Almost too much flavor text
 			  //End Array initialization
 	
 
@@ -361,11 +374,16 @@ public class CharacterCreator {
 				  
 				  //And now let's print out the newly created character!
 				  System.out.println("Displaying newly created nation. Please copy and paste the following information into a txt file.");
-				  System.out.println("In the future, there will be an export command which will create a text file.");
+				  //System.out.println("In the future, there will be an export command which will create a text file.");
 				  
+				  System.out.println("");
+				  System.out.println("Player and Nation Information:");
 				  System.out.println(name);
+				  System.out.println("Statline:");
 				  System.out.println(stat);
+				  System.out.println("Powers:");
 				  System.out.println(skill);
+				  System.out.println("Historical Importances:");
 				  System.out.println(feat);
 				  
 				  progress++; //And bring us out of Nations the RPG Character Creation!
