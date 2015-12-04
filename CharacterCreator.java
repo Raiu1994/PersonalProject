@@ -20,7 +20,7 @@ JavaScript was the wrong programming language for this type of program.
 //Functions
 public class CharacterCreator {
 
-	static int gameSystem; //Quite possibly the most important variable in the lot!
+	static int gameSystem; //Quite possibly the most important variable in the lot! This holds the selected game system.
 	 
 	
   public static void main(String[] args){ //This is where the magic happens. This is going to be really big.
@@ -90,7 +90,7 @@ public class CharacterCreator {
   public static int gameSelector(){ //This is where the user selects which game system they want to chose.
       Scanner s = new Scanner(System.in);
 
-      System.out.println("This is the Game Selection area. Please type the number of the game system that you want to use. To see what game systems are avaliable, please type List and press enter."); //Prints the instructions for this part of the program.
+      System.out.println("This is the Game Selection area. Please type the first Name of the game system that you want to use. To see what game systems are avaliable, please type List and press enter."); //Prints the instructions for this part of the program.
 
       if (gameSystem == 0){//If no game system has been selected...
     	  do{
@@ -141,20 +141,16 @@ public class CharacterCreator {
 	  progress = 0; //No progress so far.
 	  
 	 // while (progress == 0){
-		  if (gameSystem == 0){ //Catches anyone who tries to do this out of order.
-			  System.out.println("The Game System must be selected before a character can be created. Please restart the program and select a game system using the Game System command.");
+		  if (gameSystem == 0){ //Catches anyone who tries to do this out of order. This is the second layer of protection. Remember, no glove...
+			  System.out.println("The Game System must be selected before a character can be created.");
 		  }//end error catcher.
 		  
 		  if (gameSystem == 1){
 			 
-			  //Array initialization
-			  //End Array initialization
-	
-
 			  //Variables
-			  int Military = 3; //This holds the base Military stat.
-			  int Economy = 3; //This holds the base Economy stat.
-			  int Diplomacy = 3; //This holds the base Diplomacy stat.
+			  int Military = 3; //This holds the starting Military stat.
+			  int Economy = 3; //This holds the starting Economy stat.
+			  int Diplomacy = 3; //This holds the starting Diplomacy stat.
 			  int ModMilitary; //This holds the Modified Military stat.
 			  int ModEconomy; //This holds the Modified Economy stat.
 			  int ModDiplomacy; //This holds the Modified Diplomacy stat.
@@ -290,7 +286,7 @@ public class CharacterCreator {
 				  	case "Successor State": //And here's a complex one
 				  		int progress2 = 0; //Initialize the step counter.
 				  		
-				  		System.out.println("You have selected Socialist State as your Government Type. Please enter the Government Type that you start as.");
+				  		System.out.println("You have selected Successor State as your Government Type. Please enter the Government Type that you start as.");
 				  		
 				  		name.add("Government Type: Successor State"); //Add this to the top of the sheet
 				  		
