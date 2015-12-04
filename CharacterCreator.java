@@ -36,7 +36,7 @@ public class CharacterCreator {
 	  Scanner name = new Scanner(System.in);
 	  int gameSelector = 0;
 	  
-	  System.out.println("Welcome to Griffin Scott's Ultimate Character creator! For a list of commands, please type help and then press enter.");
+	  System.out.println("Welcome to Griffin Scott's Ultimate Character creator! For a list of commands, please type Help and then press enter.");
 
 	  //String commandString = m.nextLine();
 
@@ -45,23 +45,27 @@ public class CharacterCreator {
 		  
 		  switch(commandString){
 		  	case "Help":
-		  		System.out.println("The following commands are avaliable. "
-		  				+ "Game Selector: Allows selection of game system. "
+		  		System.out.println("The following commands are avaliable.");
+		  				System.out.println("Game Selector: Allows selection of game system. "
 		  				//+ "Load: Opens the Load Character Sheet Program. "
-		  				+ "Create Character: Creates a new character using the currently selected system. ");
+		  				+ "Create Character: Creates a new character using the currently selected system. "
 		  				//+ "Delete Character: Opens the Delete Character program.");
+		  				+ "Exit: Exits Griffin Scott's Ultimate Character Creator.");
 		  		//System.out.println("Currently, only Game Selector and Create Character commands are completed.");
 		  		break; 
+		  		
 		  	case "Game Selector": //This will proc gameSelector, allowing the user to select which game system they want to use.
 		  		System.out.println("You have selected the Game Selector command. Please enter the first name of the game system you want, or enter List to see the list of game systems.");
 		  		gameSelector(); //Runs gameSelector, which returns an int with what Game System was chosen.
 		  		//System.out.println("Game system is: " + gameSystem);
 		  		//progress++;
 		  		break;
+		  		
 		  	case "Load": //This will ask for the name of a character, in order to load it. This will be added once a save system is implemented.
 		  		//Insert Load command
 		  		//progress++;
 		  		break;
+		  		
 		  	case "Create Character": //Begins the Character Creation Process for the currently selected system.
 		  		//progress++;
 		  		System.out.println("Please insert the name of the character you want to create.");
@@ -69,13 +73,18 @@ public class CharacterCreator {
 		  		System.out.println("Creating a character with the name : " +characterName);
 		  		characterCreation(characterName);
 		  		break;
+		  		
 		  	case "Delete Character": //Asks for the name of the character to remove. This will be implemented with a save system.
 		  		System.out.println("Please insert the name of the character that you want to delete.");
 		  		//Insert the Delete command.
 		  		//progress++;
 		  		break;
+		  		
+		  	case "Exit":
+		  		System.out.println("Thank you for using Griffin Scott's Ultimate Character Creator!");
+		  		System.exit(0);
 		  	default: System.out.println("I'm sorry, the command you entered was not valid. If you need help with the commands, please enter Help. Capitalization is required.");
-		  	break;
+		  		break;
 		  }
 	  }while(progress == 0);
   } //End Main
@@ -124,11 +133,10 @@ public class CharacterCreator {
 		  
 		  if (gameSystem == 1){
 			  //Array Creation
-			  ArrayList name = new ArrayList(10); //Created a new array which will contain the player name, nation name, game system, name of Origin, name of Government Type, and Government Sub-types
+			  ArrayList<String> name = new ArrayList<String>(10); //Created a new array which will contain the player name, nation name, game system, name of Origin, name of Government Type, and Government Sub-types
 			  ArrayList stat = new ArrayList(6); //Holds the Military, Economy, Diplomacy, Modified Military, Modified Economy and Modified Diplomacy.
-			  ArrayList skillNum = new ArrayList(10); //Create the Powers number array, with a starting size of 10.
-			  ArrayList skillName = new ArrayList(10); //Create the Powers name array, with a starting size of 10.
-			  ArrayList feat = new ArrayList(10); //Holds Historical Importances of a nation.
+			  ArrayList skill = new ArrayList(10); //Create the Powers number array, with a starting size of 10.
+			  ArrayList<String> feat = new ArrayList<String>(10); //Holds Historical Importances of a nation.
 			  //end Array Creation
 			  
 			  
@@ -138,44 +146,14 @@ public class CharacterCreator {
 	
 
 			  //Variables
-			  int Military = 3; //This holds the base Military stat.
-			  int Economy = 3; //This holds the base Economy stat.
-			  int Diplomacy = 3; //This holds the base Diplomacy stat.
-			  int ModMilitary = 3; //This holds the Modified Military stat.
-			  int ModEconomy = 3; //This holds the Modified Economy stat.
-			  int ModDiplomacy = 3; //This holds the Modified Diplomacy stat.
+			  int Military; //This holds the base Military stat.
+			  int Economy ; //This holds the base Economy stat.
+			  int Diplomacy; //This holds the base Diplomacy stat.
+			  int ModMilitary; //This holds the Modified Military stat.
+			  int ModEconomy; //This holds the Modified Economy stat.
+			  int ModDiplomacy; //This holds the Modified Diplomacy stat.
 			  
-			  int nextNameIndex = 0;
-			  int nextStatIndex = 0;
-			  int nextSkillNumIndex = 0;
-			  int nextSkillNameIndex = 0;
-			  int nextFeatIndex = 0;
-			  
-			  /*Holding these here just in case they are needed
-			   * String PowerName1 = ""; //Holds the first Power name.
-			  String PowerName2 = ""; //Holds the second Power name.
-			  String PowerName3 = ""; //Holds the third Power name.
-			  String PowerName4 = ""; //Holds the fourth Power name.
-			  String PowerName5 = ""; //Holds the fifth Power name.
-			  String PowerName6 = ""; //Holds the sixth Power name.
-			  String PowerName7 = ""; //Holds the seventh Power name.
-			  String PowerName8 = ""; //Holds the eighth Power name.
-			  String PowerName9 = ""; //Holds the ninth Power name.
-			  String PowerName10 = ""; //Holds the tenth Power name.
-			  
-			  int Power1 = 0; //Holds the number of the first Power
-			  int Power2 = 0; //Holds the number of the second Power
-			  int Power3 = 0; //Holds the number of the third Power
-			  int Power4 = 0; //Holds the number of the fourth Power
-			  int Power5 = 0; //Holds the number of the fifth Power
-			  int Power6 = 0; //Holds the number of the sixth Power
-			  int Power7 = 0; //Holds the number of the seventh Power
-			  int Power8 = 0; //Holds the number of the eighth Power
-			  int Power9 = 0; //Holds the number of the ninth Power
-			  int Power10 = 0; //Holds the number of the tenth Power
-			  		Unsure if I need to declare all of them at once.
-			  */
-			  	
+			    	
 			  
 			  do{
 				  //Begin Player Information
@@ -185,8 +163,9 @@ public class CharacterCreator {
 				  name.add("Player Name: " +playerName);
 				  name.add("Character Name: " +characterName);
 				  name.add("Game System: Nations the RPG");
-				  System.out.println("Current size of name is: " +name.size());
-				  System.out.println("Contents of name is: " +name);
+				  //System.out.println("Current size of name is: " +name.size());
+				  //System.out.println("Contents of name is: " +name);
+				  
 				  //End Player Information
 				  progress++;
 			  }while (progress == 0);
@@ -207,9 +186,13 @@ public class CharacterCreator {
 					  System.out.println("You have chosen Rebel Colony as your Nation's origin.");
 					  name.add("Origin: Rebel Colony");
 					  
-					  Military++; //Increases Military to 4
-					  Economy++; //Increases Economy to 4
-					  Diplomacy--; //Decreases Diplomacy to 2
+					  Military = 4; //Increases Military to 4
+					  Economy = 4; //Increases Economy to 4
+					  Diplomacy = 2; //Decreases Diplomacy to 2
+					  
+					  stat.add("Military: " + Military); //Adds the base Military stat
+					  stat.add("Economy: " + Economy); //Adds the base Economy stat
+					  stat.add("Diplomacy: " +Diplomacy); //Adds the base Diplomacy stat
 					  
 					  feat.add("Freedom By Fire."); //Add Freedom By Fire to Historic Importance
 					  feat.add("National Tantrum."); //Add National Tantrum to Historic Importance
@@ -225,9 +208,14 @@ public class CharacterCreator {
 					  Economy = 1;
 					  Diplomacy = 1;
 					  
-					  ModEconomy = 2;
-					  ModDiplomacy = 2;
+					  ModEconomy = Economy + 1;
+					  ModDiplomacy = Diplomacy + 1;
 					  
+					  stat.add("Military: " + Military);
+					  stat.add("Economy: " + Economy);
+					  stat.add("Diplomacy: " + Diplomacy);
+					  stat.add("Modified Economy: " + ModEconomy);
+					  stat.add("Modified Diplomacy: " + ModDiplomacy);
 					  feat.add("Political Feavour."); //Add Political Feavour to Historic Importance.
 					  
 					  progress++;
@@ -247,39 +235,110 @@ public class CharacterCreator {
 				  		break;
 				  		
 				  	case "List":
-				  		System.out.println("The following Government Types can be selected." 
-				  				+ "Democratic Republic. Your Nation is a Democratic Republic, where your citizens elect representatives to decide on matters of law and state. Add the following Powers: Tariff Trading +1, Cash Crops +1, Army +1, Alliance +1. "
-				  				+ "Socialist State. Your Nation is a Socialist State, where the state controls the economy and most methods of labor. Add the following Powers: ndustrial Mechanation +1,  Secret Police +1, State Owned Business +1, National Pride +1. Add the following Historical Importances: Labor Surplus, Revolutionaries, The Party."
-				  				+ "Successor State. Your Nation is the Successor of a former Nation. Chose a Government Type and gain all Powers and Historical Importances for that Government Type. Then chose a second Government Type, which is what your Nation's Government Type counts as.");
+				  		System.out.println("The following Government Types can be selected."); 
+				  				System.out.println("Democratic Republic. Your Nation is a Democratic Republic, where your citizens elect representatives to decide on matters of law and state. Add the following Powers: Tariff Trading +1, Cash Crops +1, Army +1, Alliance +1. ");
+				  				System.out.println("Socialist State. Your Nation is a Socialist State, where the state controls the economy and most methods of labor. Add the following Powers: ndustrial Mechanation +1,  Secret Police +1, State Owned Business +1, National Pride +1. Add the following Historical Importances: Labor Surplus, Revolutionaries, The Party.");
+				  				System.out.println("Successor State. Your Nation is the Successor of a former Nation. Chose a Government Type and gain all Powers and Historical Importances for that Government Type. Then chose a second Government Type, which is what your Nation's Government Type counts as.");
 				  		break;
 				  		
 				  	case "Democratic Republic":
 				  		System.out.println("You have selected Democratic Republic as your Government Type.");
 				  		name.add("Government Type: Democratic Republic");
-				  		//NEED .next command!
+				  		skill.add("Tarrif Trading +1");
+				  		skill.add("Cash Crops +1");
+				  		skill.add("Army +1");
+				  		skill.add("Alliance +1");
+				  		
+				  		progress++;
 				  		break;
 				  		
 				  	case "Socialist State":
 				  		System.out.println("You have selected Socialist State as your Government Type.");
 				  		name.add("Government Type: Socialist State");
-				  		//NEED .next command
+				  		skill.add("Industiral Mechanations +1");
+				  		skill.add("Secret Police +1");
+				  		skill.add("State Owned Business +1");
+				  		skill.add("National Pride +1");
+				  		feat.add("Labor Surplus");
+				  		feat.add("Revolutionaries");
+				  		feat.add("The Party");
+				  		
+				  		progress++;
 				  		break;
 				  		
 				  	case "Successor State":
+				  		int progress2 = 0;
+				  		
 				  		System.out.println("You have selected Socialist State as your Government Type. Please enter the Government Type that you start as.");
+				  		
 				  		name.add("Government Type: Successor State");
 				  		
-				  		String firstGovernment = c.nextLine();
-				  		
+				  		do{
+					  		String firstGovernment = c.nextLine(); //Holds the first government type.
+				  			
 				  		switch (firstGovernment){
+				  			default: System.out.println("Please use correct capitalization, and include the entirety of the Government Type. Example: Democratic Republic.");
+				  			break;
+				  			
+				  			case "Democratic Republic":
+						  		System.out.println("You have selected Democratic Republic as your Former Government Type.");
+						  		name.add("Former Government Type: Democratic Republic");
+						  		skill.add("Tarrif Trading +1");
+						  		skill.add("Cash Crops +1");
+						  		skill.add("Army +1");
+						  		skill.add("Alliance +1");
+						  		
+						  		progress2++;
+						  		break;
+						  		
+				  			case "Socialist State":
+				  				name.add("Former Government Type: Socialist State");
+						  		skill.add("Industiral Mechanations +1");
+						  		skill.add("Secret Police +1");
+						  		skill.add("State Owned Business +1");
+						  		skill.add("National Pride +1");
+						  		feat.add("Labor Surplus");
+						  		feat.add("Revolutionaries");
+						  		feat.add("The Party");
+				  				progress2++;
+						  		break;
+				  		} //End switch
+				  		} while (progress2 == 0);
 				  		
+				  		do{
+				  		String secondGovernment = c.nextLine(); //Holds the second goverment type.
+				  		
+				  		switch (secondGovernment){
+				  			default: System.out.println("Please use proper capitalization when selecting your second government subclass");
+				  			break;
+				  			
+				  			case "Democratic Republic":
+				  				System.out.println("Your Nation is now a Democratic Republic.");
+				  				name.add("Current Government Type: Democratic Republic");
+				  				progress2++;
+				  				
+				  			case "Socialist State":
+				  				System.out.println("Your Nation is now a Socialist State.");
+				  				name.add("Current Government Type: Socialist State");
+				  				progress2++;
 				  		} //End switch
 				  		
-				  		//NEED .next command
-				  		break;
+				  		}while(progress2 == 1);
+				  		
+				  		System.out.println("Successor State completed.");
+				  		progress++;
+				  		break; //End Selector State
 				  }//End Switch
 			  }while (progress == 2); //End Government Type Selection
 			  
+			  do{
+				  System.out.println("Displaying newly created nation. Please copy and paste the following information into a txt file.");
+				  System.out.println(name);
+				  System.out.println(stat);
+				  System.out.println(skill);
+				  System.out.println(feat);
+				  progress++;
+			  }while(progress == 3);
 		  } //End Nations the RPG character creation
 		  
 		  if (gameSystem == 2){
