@@ -57,6 +57,7 @@ public class CharacterCreator {
 		  	case "Game Selector": //This will proc gameSelector, allowing the user to select which game system they want to use.
 		  		System.out.println("You have selected the Game Selector command. Please enter the first name of the game system you want, or enter List to see the list of game systems.");
 		  		gameSelector(); //Runs gameSelector, which returns an int with what Game System was chosen.
+		  		System.out.println("Sending back to Main Menu.");
 		  		//System.out.println("Game system is: " + gameSystem);
 		  		//progress++;
 		  		break;
@@ -141,7 +142,9 @@ public class CharacterCreator {
 			  
 			  
 			  //Array initialization
-			  //Just putting this here if it becomes neeeded.
+			  stat.add("Stats: ");
+			  skill.add("Powers: ");
+			  feat.add("Historical Importances: ");
 			  //End Array init
 	
 
